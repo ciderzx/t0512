@@ -12,6 +12,7 @@ document.addEventListener('DOMContentLoaded', () => {
   let currentMode = 'learn'; // 'learn' or 'quiz'
   let currentTable = 2;
   let score = { correct: 0, total: 0 };
+  let isProcessing = false;
 
   // Initialize number buttons 2-9
   const initButtons = () => {
@@ -58,6 +59,7 @@ document.addEventListener('DOMContentLoaded', () => {
   };
 
   const nextQuestion = () => {
+    isProcessing = false;
     const multiplier = Math.floor(Math.random() * 9) + 1;
     const correctAnswer = currentTable * multiplier;
     
@@ -82,6 +84,8 @@ document.addEventListener('DOMContentLoaded', () => {
   };
 
   window.checkAnswer = (selected, correct, btn) => {
+    if (isProcessing) return;
+    isProcessing = true;
     score.total++;
     if (selected === correct) {
       score.correct++;
