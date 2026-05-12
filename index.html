@@ -13,19 +13,35 @@
 <body>
   <header>
     <h1>빛나는 구구단</h1>
-    <p>재미있게 구구단을 외워요 🎉</p>
+    <p>재미있게 구구단을 마스터해요! ✨</p>
   </header>
-  <main>
+
+  <main class="container">
+    <nav class="mode-toggle">
+      <button id="learnModeBtn" class="active">학습하기</button>
+      <button id="quizModeBtn">퀴즈풀기</button>
+    </nav>
+
     <section class="selector">
-      <h2>원하는 구구단을 선택하세요</h2>
+      <h2 id="selectorTitle">단수를 선택하세요</h2>
       <div class="buttons" id="tableButtons"></div>
     </section>
-    <section class="grid" id="multiplicationGrid"></section>
+
+    <section class="display-area" id="displayArea">
+      <div class="grid" id="multiplicationGrid"></div>
+      <!-- Quiz content will be injected here -->
+    </section>
+
+    <div id="scoreBoard" class="score" style="display: none;">
+      맞힌 개수: <span id="correctCount">0</span> / <span id="totalCount">0</span>
+    </div>
   </main>
+
   <footer>
-    <p>© 2026 빛나는 구구단</p>
+    <p>© 2026 빛나는 구구단 · 즐거운 수학 여행</p>
   </footer>
+
   <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.7.0/dist/confetti.browser.min.js"></script>
-<script src="script.js"></script>
+  <script src="script.js"></script>
 </body>
 </html>
